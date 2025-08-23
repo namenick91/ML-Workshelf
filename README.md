@@ -1,3 +1,27 @@
+## Table of Contents
+
+- [Simpsons Character Classification](#simpsons-character-classification)
+  - [At a glance](#at-a-glance)
+  - [Quick start](#quick-start)
+  - [How it works](#how-it-works)
+  - [Results](#results)
+- [Image Segmentation with CNNs](#image-segmentation-with-cnns)
+  - [At a glance](#at-a-glance-1)
+  - [Quick start](#quick-start-1)
+  - [How it works](#how-it-works-1)
+  - [Results](#results-1)
+  - [Citation](#citation)
+- [Customer Churn Prediction](#customer-churn-prediction)
+  - [At a glance](#at-a-glance-2)
+  - [Quick start](#quick-start-2)
+  - [How it works](#how-it-works-2)
+  - [Results](#results-2)
+- [Game of Thrones Character Survival Prediction](#game-of-thrones-character-survival-prediction)
+  - [At a glance](#at-a-glance-3)
+  - [Quick start](#quick-start-3)
+  - [How it works](#how-it-works-3)
+  - [Results](#results-3)
+
 # Simpsons Character Classification
 
 ## At a glance
@@ -5,7 +29,7 @@
 *   **Data**: "Journey to the Springfields" ([Kaggle](https://www.kaggle.com/competitions/journey-springfield)).
 *   **Model/Approach**: Transfer learning using a pre-trained [EfficientNetV2-S](https://huggingface.co/timm/tf_efficientnetv2_s.in21k_ft_in1k) model with a custom classification head. Training involves a two-phase fine-tuning strategy.
 *   **Key metric(s)**: Micro F1-Score.
-*   **Runtime/hardware**: Models were trained on a CUDA-enabled GPU
+*   **Runtime/hardware**: Models were trained on a CUDA-enabled GPU.
 
 ## Quick start
 *   [Open notebook](./dl_cv_classification_simpsons/main.ipynb)
@@ -28,7 +52,7 @@
 *   **Data**: PH² Dataset, a public database of 200 annotated dermoscopic images ([ADDI project](https://www.fc.up.pt/addi/ph2%20database.html)).
 *   **Model/Approach**: Compared SegNet and U-Net encoder-decoder architectures trained with BCE, Dice, and Focal loss functions.
 *   **Key metric(s)**: Intersection over Union (IoU / Jaccard Index).
-*   **Runtime/hardware**: Models were trained on a CUDA-enabled GPU
+*   **Runtime/hardware**: Models were trained on a CUDA-enabled GPU.
 
 ## Quick start
 *   [Open notebook](./dl_semantic_segmentation_medical/main.ipynb)
@@ -54,10 +78,10 @@
 
 ## At a glance
 *   **Task**: Binary classification to predict customer churn.
-*   **Data**: "Предсказание оттока пользователей " ([Kaggle](https://www.kaggle.com/c/advanced-dls-spring-2021/)).
+*   **Data**: "Предсказание оттока пользователей" ([Kaggle](https://www.kaggle.com/c/advanced-dls-spring-2021/)).
 *   **Model/Approach**: A CatBoost Classifier with hyperparameters tuned using the Optuna framework over 100 trials. The optimization process used a `TPESampler` and `HyperbandPruner`.
 *   **Key metric(s)**: ROC AUC.
-*   **Runtime/hardware**: Models were trained on a CUDA-enabled GPU
+*   **Runtime/hardware**: Models were trained on a CUDA-enabled GPU.
 
 ## Quick start
 *   [Open notebook](./ml_classification_churn/main.ipynb)
@@ -79,7 +103,7 @@
 *   **Data**: A character dataset sourced from [A Wiki of Ice and Fire](http://awoiaf.westeros.org/), containing features like house, culture, age, and popularity.
 *   **Model/Approach**: A `RandomForestClassifier` was selected after a cross-validated comparison of multiple classical ML models. Hyperparameters for the model and preprocessing pipeline were tuned using `RandomizedSearchCV`.
 *   **Key metric(s)**: ROC AUC was used for optimization due to class imbalance (78% alive). Final evaluation also includes Accuracy.
-*   **Runtime/hardware**: Models were trained on a CUDA-enabled GPU
+*   **Runtime/hardware**: Models were trained on a CUDA-enabled GPU.
 
 ## Quick start
 *   [Open notebook](./ml_classification_game_of_thrones/main.ipynb)
