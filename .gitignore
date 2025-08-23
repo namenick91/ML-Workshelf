@@ -1,0 +1,9 @@
+*.DS_Store
+*.csv
+*.pkl
+*.md
+./convert_to_md.py
+**/content/
+**/extra/
+**/summary/
+**/checkpoint/
