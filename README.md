@@ -2,13 +2,12 @@
 
 ## At a glance
 *   **Task**: Multi-class image classification of cartoon characters.
-*   **Data**: "Journey to the Springfields" (Kaggle). `TODO: Add dataset link`
-*   **Model/Approach**: Transfer learning using a pre-trained `EfficientNetV2-S` model with a custom classification head. Training involves a two-phase fine-tuning strategy.
+*   **Data**: "Journey to the Springfields" ([Kaggle](https://www.kaggle.com/c/advanced-dls-spring-2021/)).
+*   **Model/Approach**: Transfer learning using a pre-trained [EfficientNetV2-S](https://huggingface.co/timm/tf_efficientnetv2_s.in21k_ft_in1k) model with a custom classification head. Training involves a two-phase fine-tuning strategy.
 *   **Key metric(s)**: Micro F1-Score.
-*   **Runtime/hardware**: `TODO: Specify GPU/runtime`
 
 ## Quick start
-*   [Open notebook](./TODO-notebook-filename.ipynb)
+*   [Open notebook](./dl_cv_classification_simpsons/main.ipynb)
 
 ## How it works
 *   Images are resized to 224x224 px and normalized. The training set is augmented using techniques like `RandAugment`, `CutMix`, and `MixUp`.
@@ -21,4 +20,4 @@
 *   Training and validation loss/accuracy curves show effective learning and generalization before early stopping.
 *   Qualitative results include visualizations of correct and incorrect predictions, confirming high model confidence on most validation samples.
 
-[← Back to Showcase](../README.md)
+[← Back to Showcase](./README.md)
