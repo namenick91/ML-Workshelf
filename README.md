@@ -42,10 +42,20 @@
 *   Training is conducted in two phases: first, only the new classifier head is trained for 5 epochs; second, the entire model is unfrozen and fine-tuned for up to 15 epochs.
 *   The training process uses an AdamW optimizer, a cosine annealing learning rate scheduler, and early stopping to prevent overfitting.
 
+<p align="center">
+    <img src=".\dl_cv_classification_simpsons\pics\simpsons_loss.png" height = "350" alt="" align=center />
+</p>
+
 ### Results
 *   The model achieves a micro F1-score of **0.99574** on the test set.
 *   Training and validation loss/accuracy curves show effective learning and generalization before early stopping.
 *   Qualitative results include visualizations of correct and incorrect predictions, confirming high model confidence on most validation samples.
+
+<p align="center">
+  <img src="./dl_cv_classification_simpsons/pics/simpsons1.png" height="350" alt="Image 1" />
+  <img src="./dl_cv_classification_simpsons/pics/simpsons2.png" height="350" alt="Image 2" />
+</p>
+
 
 ## Image Segmentation with CNNs
 
@@ -76,6 +86,32 @@
 *   Ronneberger, O., Fischer, P., & Brox, T. (2015). *U-Net: Convolutional networks for biomedical image segmentation*.
 *   Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). *Focal loss for dense object detection*.
 
+## Game of Thrones Character Survival Prediction
+
+### At a glance
+*   **Task**: Binary classification to predict the survival (`isAlive`) of characters in the *Game of Thrones* universe.
+*   **Data**: A character dataset sourced from [A Wiki of Ice and Fire](http://awoiaf.westeros.org/), containing features like house, culture, age, and popularity.
+*   **Model/Approach**: A `RandomForestClassifier` was selected after a cross-validated comparison of multiple classical ML models. Hyperparameters for the model and preprocessing pipeline were tuned using `RandomizedSearchCV`.
+*   **Key metric(s)**: ROC AUC was used for optimization due to class imbalance (78% alive). Final evaluation also includes Accuracy.
+*   **Runtime/hardware**: Models were trained on a CUDA-enabled GPU.
+
+### Quick start
+*   [Open notebook](./ml_classification_game_of_thrones/main.ipynb)
+
+### How it works
+*   The preprocessing pipeline drops uninformative columns and features with a high percentage of missing values (over 85%).
+*   New binary features are engineered from raw data, including `isPopular` (from a popularity score) and `boolDeadRelations`. The high-cardinality `culture` feature is simplified by grouping related entries.
+*   Categorical data is encoded using a target encoder with Bayesian smoothing. Numerical features are imputed with the median and standardized.
+*   Multiple classifiers were benchmarked via 10-fold stratified cross-validation, with `RandomForestClassifier` ultimately selected for final tuning based on its strong performance.
+
+<p align="center">
+    <img src=".\ml_classification_game_of_thrones\pics\GoT.png" height = "350" alt="" align=center />
+</p>
+
+### Results
+*   The final tuned model achieved a **ROC AUC of 0.7953** on the held-out test set.
+*   The model reached a final **accuracy of 0.8045**, significantly outperforming the baseline accuracy of 0.7788.
+
 ## Customer Churn Prediction
 
 ### At a glance
@@ -97,27 +133,5 @@
 ### Results
 *   The best hyperparameter configuration achieved a mean ROC AUC of 0.848 during cross-validation.
 *   On the hold-out test set, the final model scored a ROC AUC of 0.859.
-
-## Game of Thrones Character Survival Prediction
-
-### At a glance
-*   **Task**: Binary classification to predict the survival (`isAlive`) of characters in the *Game of Thrones* universe.
-*   **Data**: A character dataset sourced from [A Wiki of Ice and Fire](http://awoiaf.westeros.org/), containing features like house, culture, age, and popularity.
-*   **Model/Approach**: A `RandomForestClassifier` was selected after a cross-validated comparison of multiple classical ML models. Hyperparameters for the model and preprocessing pipeline were tuned using `RandomizedSearchCV`.
-*   **Key metric(s)**: ROC AUC was used for optimization due to class imbalance (78% alive). Final evaluation also includes Accuracy.
-*   **Runtime/hardware**: Models were trained on a CUDA-enabled GPU.
-
-### Quick start
-*   [Open notebook](./ml_classification_game_of_thrones/main.ipynb)
-
-### How it works
-*   The preprocessing pipeline drops uninformative columns and features with a high percentage of missing values (over 85%).
-*   New binary features are engineered from raw data, including `isPopular` (from a popularity score) and `boolDeadRelations`. The high-cardinality `culture` feature is simplified by grouping related entries.
-*   Categorical data is encoded using a target encoder with Bayesian smoothing. Numerical features are imputed with the median and standardized.
-*   Multiple classifiers were benchmarked via 10-fold stratified cross-validation, with `RandomForestClassifier` ultimately selected for final tuning based on its strong performance.
-
-### Results
-*   The final tuned model achieved a **ROC AUC of 0.7953** on the held-out test set.
-*   The model reached a final **accuracy of 0.8045**, significantly outperforming the baseline accuracy of 0.7788.
 
 <!-- [← Back to Showcase](./README.md) -->
