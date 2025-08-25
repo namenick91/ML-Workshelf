@@ -13,16 +13,16 @@
   - [How it works](#how-it-works-1)
   - [Results](#results-1)
   - [Citation](#citation)
-- [Customer Churn Prediction](#customer-churn-prediction)
-  - [At a glance](#at-a-glance-2)
-  - [Quick start](#quick-start-2)
-  - [How it works](#how-it-works-2)
-  - [Results](#results-2)
 - [Game of Thrones Character Survival Prediction](#game-of-thrones-character-survival-prediction)
   - [At a glance](#at-a-glance-3)
   - [Quick start](#quick-start-3)
   - [How it works](#how-it-works-3)
   - [Results](#results-3)
+- [Customer Churn Prediction](#customer-churn-prediction)
+  - [At a glance](#at-a-glance-2)
+  - [Quick start](#quick-start-2)
+  - [How it works](#how-it-works-2)
+  - [Results](#results-2)
 
 ## Simpsons Character Classification
 
