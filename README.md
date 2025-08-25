@@ -43,7 +43,7 @@
 *   The training process uses an AdamW optimizer, a cosine annealing learning rate scheduler, and early stopping to prevent overfitting.
 
 ### Results
-*   The model achieves a micro F1-score of **0.99574** on the validation set.
+*   The model achieves a micro F1-score of **0.99574** on the test set.
 *   Training and validation loss/accuracy curves show effective learning and generalization before early stopping.
 *   Qualitative results include visualizations of correct and incorrect predictions, confirming high model confidence on most validation samples.
 
